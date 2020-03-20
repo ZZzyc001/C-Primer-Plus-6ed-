@@ -1,0 +1,11 @@
+#include <iostream>
+
+int main()
+{
+	using namespace std;
+	int age, mounth;
+	cout << "Enter your age: ";
+	cin >> age;
+	cout << "It includes " << age * 12 << " mounths\n";
+	return 0;
+}
