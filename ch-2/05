@@ -1,0 +1,19 @@
+#include <iostream>
+
+double Trans(double n);
+
+int main()
+{
+	using namespace std;
+	double n;
+	cout << "Please enter a Celsius value: ";
+	cin >> n;
+	cout << n << " degrees Celsius is "
+		<< Trans(n) << " degrees Fahrenheit.\n";
+	return 0;
+}
+
+double Trans(double n)
+{
+	return 1.8 * n + 32.0;
+}
