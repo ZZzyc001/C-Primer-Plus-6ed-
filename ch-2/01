@@ -1,0 +1,9 @@
+#include <iostream>
+
+int main()
+{
+	using namespace std;
+	cout << "My name is: ***\n";
+	cout << "My address is: ****\n";
+	return 0;
+}
