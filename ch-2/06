@@ -1,0 +1,19 @@
+#include <iostream>
+
+double Trans(double n);
+
+int main()
+{
+	using namespace std;
+	double n;
+	cout << "Enter the number of light years: ";
+	cin >> n;
+	cout << n << " light years = "
+		<< Trans(n) << " astronomical units.\n";
+	return 0;
+}
+
+double Trans(double n)
+{
+	return 63240 * n;
+}
