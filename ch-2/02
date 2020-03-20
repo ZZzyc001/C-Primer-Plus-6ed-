@@ -1,0 +1,11 @@
+#include <iostream>
+
+int main()
+{
+	using namespace std;
+	double d;
+	cout << "Enter a distance in long: ";
+	cin >> d;
+	cout << "It's equal to " << 220 * d << " yard.\n";
+	return 0;
+}
