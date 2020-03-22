@@ -1,0 +1,13 @@
+#include <iostream>
+const int T = 12;
+
+int main()
+{
+	using namespace std;
+	int inch;
+	cout << "Enter your height, in inch:___\b\b\b";
+	cin >> inch;
+	cout << "It's equal to " << inch / T << " foot, "
+		<< inch % T << " inch.\n";
+	return 0;
+}
