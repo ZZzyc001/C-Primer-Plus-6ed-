@@ -1,0 +1,21 @@
+#include <iostream>
+const int hr_per_d = 24;
+const int T = 60;
+
+int main()
+{
+	using namespace std;
+	int s, d, h, m, s1;
+	cout << "Enter the nuumber of seconds: ";
+	cin >> s;
+	s1 = s % T;
+	m = s / T;
+	h = m / T;
+	m = m % T;
+	d = h / hr_per_d;
+	h = h % hr_per_d;
+	cout << s << " seconds = " << d << " days, "
+		<< h << " hours, " << m << " minutes, "
+		<< s1 << " seconds\n";
+	return 0;
+}
