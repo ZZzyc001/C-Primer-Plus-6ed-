@@ -1,0 +1,14 @@
+#include <iostream>
+int main()
+{
+	using namespace std;
+	long long wp, up;
+	cout << "Enter the world's population: ";
+	cin >> wp;
+	cout << "Enter the  population of the US: ";
+	cin >> up;
+	cout << "The population of the US is "
+		<< double(up) / wp * 100.0
+		<< "% of the world population.\n";
+	return 0;
+}
