@@ -1,0 +1,13 @@
+#include <iostream>
+int main()
+{
+	using namespace std;
+	double km, l;
+	cout << "Enter the distance, in km: ";
+	cin >> km;
+	cout << "Enter the gas, in L: ";
+	cin >> l;
+	cout << "When you drive 100 km, you will use "
+		<< l / km * 100 << "L of gas.\n";
+	return 0;
+}
