@@ -1,0 +1,11 @@
+#include <iostream>
+
+int main()
+{
+	using namespace std;
+	double g1;
+	cout << "Enter the usage of the gas when you drive 100 km: ";
+	cin >> g1;
+	cout << "It's equal to " << 62.14 * 3.875 / g1 << "mpg.\n";
+	return 0;
+}
