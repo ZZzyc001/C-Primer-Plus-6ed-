@@ -1,0 +1,20 @@
+#include <iostream>
+const int T = 60;
+
+int main()
+{
+	using namespace std;
+	int d, m, s;
+	double p;
+	cout << "Enter a latitude in degrees, minutes, and seconds:\n";
+	cout << "First, enter the degrees: ";
+	cin >> d;
+	cout << "Next, enter the minutes of arc: ";
+	cin >> m;
+	cout << "Finally, enter the seconds of arc: ";
+	cin >> s;
+	p = double(d) + double(m) / T + double(s) / T / T;
+	cout << d << " degrees, " << m << " minuntes, "
+		<< s << " seconds = " << p << " degrees\n";
+	return 0;
+}
