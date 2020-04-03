@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+struct Pizza
+{
+	char name[80];
+	double diameter, weight;
+};
+
+int main()
+{
+	Pizza* p = new Pizza;
+	cout << "Enter the diameter: ";
+	cin >> p->diameter;
+	cin.get();
+	cout << "Enter the company's name: ";
+	cin.getline(p->name, 80);
+	cout << "Enter the weight: ";
+	cin >> p->weight;
+
+	cout << "Company: " << p->name << endl;
+	cout << "Diameter: " << p->diameter << endl;
+	cout << "Weight: " << p->weight << endl;
+
+	return 0;
+}
