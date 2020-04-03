@@ -1,0 +1,16 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstring>
+int main()
+{
+	using namespace std;
+	char fn[80], ln[80];
+	cout << "Enter your first name: ";
+	cin.getline(fn, 80);
+	cout << "Enter your last name: ";
+	cin.getline(ln, 80);
+	strcat(ln, ", ");
+	strcat(ln, fn);
+	cout << "Here's the information in a single string: " << ln << endl;
+	return 0;
+}
