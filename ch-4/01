@@ -1,0 +1,27 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Student
+{
+	string ln, fn;
+	char grade;
+	int age;
+};
+
+int main()
+{
+	Student s;
+	cout << "What is your first name? ";
+	getline(cin, s.fn);
+	cout << "What is your last name? ";
+	getline(cin, s.ln);
+	cout << "What letter grade do you deserve? ";
+	cin >> s.grade;
+	cout << "What is your age? ";
+	cin >> s.age;
+	cout << "Name: " << s.ln << ", " << s.fn << endl;
+	cout << "Grade: " << char(s.grade + 1) << endl;
+	cout << "Age: " << s.age << endl;
+	return 0;
+}
