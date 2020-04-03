@@ -1,0 +1,20 @@
+#include <iostream>
+#include <array>
+
+int main()
+{
+    using namespace std;
+    array<double, 3> grades;
+
+    cout << "Your grade: ";
+    cin >> grades[0];
+    cout << "Your grade: ";
+    cin >> grades[1];
+    cout << "Your grade: ";
+    cin >> grades[2];
+
+    double avg = (grades[0] + grades[1] + grades[2]) / 3.0;
+
+    cout << "Average grade: " << avg << endl;
+    return 0;
+}
