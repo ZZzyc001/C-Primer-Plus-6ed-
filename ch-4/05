@@ -1,0 +1,19 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct CandyBar
+{
+	string type;
+	double weight;
+	int Ca;
+};
+
+int main()
+{
+	CandyBar snack{ "Mocha Munch", 2.3, 350 };
+	cout << "Type: " << snack.type << endl;
+	cout << "Weight: " << snack.weight << endl;
+	cout << "Calorie: " << snack.Ca << endl;
+	return 0;
+}
