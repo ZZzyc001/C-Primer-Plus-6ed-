@@ -1,28 +1,37 @@
-// not.cpp
+// cctypes.cpp
 #include <iostream>
-#include <climits>
-bool is_int(double);
+#include <cctype>
 int main()
 {
 	using namespace std;
-	double num;
+	cout << "Enter text for analysis, and type @"
+		"to terminate input.\n";
+	char ch;
+	int whitespaces = 0;
+	int digits = 0;
+	int chars = 0;
+	int punct = 0;
+	int others = 0;
 
-	cout << "Yo, dude! Enter an integer value: ";
-	cin >> num;
-	while (!is_int(num))
+	cin.get(ch);
+	while (ch != '@')
 	{
-		cout << "Out of range -- please try again: ";
-		cin >> num;
+		if (isalpha(ch))
+			++chars;
+		else if (isspace(ch))
+			++whitespaces;
+		else if (isdigit(ch))
+			++digits;
+		else if (ispunct(ch))
+			++punct;
+		else
+			++others;
+		cin.get(ch);
 	}
-	int val = int(num);
-	cout << "You've entered the integer " << val << "\nBye\n";
+	cout << chars << " letters, "
+		<< whitespaces << " whitespaces, "
+		<< digits << " digits, "
+		<< punct << " punctuations, "
+		<< others << " others.\n";
 	return 0;
-}
-
-bool is_int(double x)
-{
-	if (x <= INT_MAX && x >= INT_MIN)
-		return true; 
-	else
-		return false;
 }
