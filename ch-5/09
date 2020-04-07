@@ -1,0 +1,17 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main()
+{
+	string word;
+	int numbers = 0;
+	cout << "Enter words (to stop, type the word done):\n";
+
+	while (cin >> word && word != "done")
+		++numbers;
+
+	cout << "You entered a total of " << numbers << " words.\n";
+
+	return 0;
+}
