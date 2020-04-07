@@ -1,0 +1,19 @@
+#include <iostream>
+
+int main()
+{
+	using namespace std;
+
+	int a, b;
+	cout << "Please enter two integer: ";
+	cin >> a >> b;
+	
+	int sum = 0;
+	for (int i = a; i <= b; ++i)
+		sum += i;
+
+	cout << "The sum of the integers between " << a
+		<< " and " << b << " is " << sum << endl;
+
+	return 0;
+}
