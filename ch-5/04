@@ -1,0 +1,19 @@
+#include <iostream>
+
+int main()
+{
+	using namespace std;
+	double m1 = 100.0, m2 = 100.0;
+	double r1 = 0.10, r2 = 0.05;
+	int year = 0;
+	do
+	{
+		m1 += 100.0 * r1;
+		m2 *= 1 + r2;
+		++year;
+	} while (m1 > m2);
+	cout << "After " << year << " years" << endl;
+	cout << "Daphne has " << m1 << endl;
+	cout << "Cleo has " << m2 << endl;
+	return 0;
+}
