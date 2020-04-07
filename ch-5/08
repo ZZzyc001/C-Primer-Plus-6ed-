@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cstring>
+char word[80];
+
+int main()
+{
+	using namespace std;
+	int numbers = 0;
+	cout << "Enter words (to stop, type the word done):\n";
+
+	while (cin >> word && strcmp(word, "done"))
+		++numbers;
+
+	cout << "You entered a total of " << numbers << " words.\n";
+
+	return 0;
+}
