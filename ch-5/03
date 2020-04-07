@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main()
+{
+	using namespace std;
+	double sum = 0.0;
+	double x;
+	cout << "Please enter a number (enter 0 to quit) : ";
+	while (cin >> x && x)
+	{
+		sum += x;
+		cout << "The sum of all the number you entered is ";
+		cout << sum << endl;
+		cout << "Please enter a number (enter 0 to quit) : ";
+	}
+	return 0;
+}
