@@ -1,0 +1,27 @@
+#include <iostream>
+#include <array>
+
+int main()
+{
+	using namespace std;
+	const int maxn = 10;
+	array<double, maxn> ar;
+
+	cout << "Enter the donations, up to 10.\n";
+
+	double donation, sum = 0;
+	int i = 0;
+	while (cin >> donation)
+		ar[i++] = donation, sum += donation;
+
+	double ave = sum / i;
+
+	int n = 0;
+	for (int j = 0; j < i; ++j)
+		if (ar[j] > ave)
+			++n;
+
+	cout << "Average: " << ave << endl;
+	cout << "There are " << n << " degits is above the average.\n";
+	return 0;
+}
