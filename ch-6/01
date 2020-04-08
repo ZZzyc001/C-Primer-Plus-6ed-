@@ -1,0 +1,18 @@
+#include <iostream>
+#include <cctype>
+using namespace std;
+
+int main()
+{
+	char ch;
+	while (cin >> ch && ch != '@')
+		if (!isdigit(ch))
+			if (isalpha(ch))
+				if (ch >= 'a')
+					cout << char(toupper(ch));
+				else
+					cout << char(tolower(ch));
+			else
+				cout << ch;
+	return 0;
+}
