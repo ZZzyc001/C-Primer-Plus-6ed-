@@ -1,0 +1,21 @@
+#include <iostream>
+int main()
+{
+	using namespace std;
+	double n, a = 0;
+	cout << "Enter your income: ";
+	while (cin >> n && n >= 0)
+	{
+		if (n > 35000)
+			a = 10000 * 0.1 + 20000 * 0.15 + (n - 35000) * 0.2;
+		else if (n > 15000)
+			a = 10000 * 0.1 + (n - 15000) * 0.15;
+		else if (n > 2000)
+			a = (n - 5000) * 0.1;
+		else
+			a = 0;
+		cout << "It's " << a << endl;
+		cout << "Enter your income: ";
+	}
+	return 0;
+}
