@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+
+int main()
+{
+	using namespace std;
+	cout << "Enter words (q to quit):\n";
+	string st;
+	int a = 0, b = 0, c = 0;
+	char ch;
+	while (cin >> st && st != "q")
+	{
+		if (isalpha(st[0]))
+		{
+			ch = toupper(st[0]);
+			if (ch == 'A' || ch == 'E' || ch == 'I'
+				|| ch == 'O' || ch == 'U')
+				++a;
+			else
+				++b;
+		}
+		else
+			++c;
+	}
+	cout << a << " words beginning with vowels\n";
+	cout << b << " words beginning with consonants\n";
+	cout << c << " others\n";
+	return 0;
+}
