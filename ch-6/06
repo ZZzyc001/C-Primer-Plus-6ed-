@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct People
+{
+	string name;
+	double money;
+};
+
+int main()
+{
+	int n;
+	cout << "Enter the number of people: ";
+	cin >> n;
+	People* p = new People[n];
+	for (int i = 0; i < n; ++i)
+	{
+		cout << "Enter the name: ";
+		cin.get();
+		getline(cin, p[i].name);
+		cout << "Enter the money: ";
+		cin >> p[i].money;
+	}
+	int x = 0;
+	cout << "Grand Patrons\n";
+	for (int i = 0; i < n; ++i)
+		if (p[i].money > 10000)
+			cout << p[i].name << ' ' << p[i].money << endl, ++x;
+	if (!x) cout << "none\n";
+	x = 0;
+	cout << "Patrons\n";
+	for (int i = 0; i < n; ++i)
+		if (p[i].money <= 10000)
+			cout << p[i].name << ' ' << p[i].money << endl, ++x;
+	if (!x) cout << "none\n";
+	delete[] p;
+	return 0;
+}
