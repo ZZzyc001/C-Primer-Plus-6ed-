@@ -1,0 +1,52 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+struct People
+{
+	string name;
+	double money;
+};
+
+int main()
+{
+	int n;
+	ifstream fin;
+	fin.open("Text.txt");
+	fin >> n;
+	People* p = new People[n];
+	for (int i = 0; i < n; ++i)
+	{
+		fin.get();
+		getline(fin, p[i].name);
+		fin >> p[i].money;
+	}
+	int x = 0;
+	cout << "Grand Patrons\n";
+	for (int i = 0; i < n; ++i)
+		if (p[i].money > 10000)
+			cout << p[i].name << ' ' << p[i].money << endl, ++x;
+	if (!x) cout << "none\n";
+	x = 0;
+	cout << "Patrons\n";
+	for (int i = 0; i < n; ++i)
+		if (p[i].money <= 10000)
+			cout << p[i].name << ' ' << p[i].money << endl, ++x;
+	if (!x) cout << "none\n";
+	delete[] p;
+	return 0;
+}
+
+/*
+Text.txt
+4
+Sam Stone
+2000
+Freida Flass
+100500
+Tammy Tubbs
+5000
+Rich Raptor
+55000
+*/
