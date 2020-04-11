@@ -1,0 +1,36 @@
+#include <iostream>
+using namespace std;
+
+struct box
+{
+	char maker[40];
+	float height;
+	float width;
+	float length;
+	float volume;
+};
+
+void Print(box bx);
+void Set_volume(box* bx);
+
+int main()
+{
+	box bx = { "Box Maker", 1, 2, 3 };
+	Set_volume(&bx);
+	Print(bx);
+	return 0;
+}
+
+void Print(box bx)
+{
+	cout << "The maker is " << bx.maker << endl;
+	cout << "Height: " << bx.height << endl;
+	cout << "Width: " << bx.width << endl;
+	cout << "Length: " << bx.length << endl;
+	cout << "Volume: " << bx.volume << endl;
+}
+
+void Set_volume(box* bx)
+{
+	bx->volume = bx->height * bx->length * bx->width;
+}
