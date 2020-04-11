@@ -1,0 +1,17 @@
+#include <iostream>
+
+double Calculate(double x, double y);
+
+int main()
+{
+	using namespace std;
+	int x, y;
+	while (cin >> x >> y && x && y)
+		cout << Calculate(x, y) << endl;
+	return 0;
+}
+
+double Calculate(double x, double y)
+{
+	return 2.0 * x * y / (x + y);
+}
