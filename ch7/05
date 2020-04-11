@@ -1,0 +1,25 @@
+#include <iostream>
+
+const int Max = 1010;
+double a[Max]{};
+
+double Calculate(int n);
+
+int main()
+{
+	using namespace std;
+	int n;
+	a[0] = a[1] = 1;
+	cout << "Enter an integer n to calculate n!\n";
+	while (cin >> n && n >= 0)
+		cout << Calculate(n) << endl;
+	return 0;
+}
+
+double Calculate(int n)
+{
+	if (a[n])
+		return a[n];
+	else
+		return n * Calculate(n - 1);
+}
