@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+const int Max = 10;
+
+int Get(double* a);
+void Print(double* a, int n);
+double Calculate(double* a, int n);
+
+int main()
+{
+	double a[Max];
+	int size = Get(a);
+	Print(a, size);
+	cout << "The average score is " << Calculate(a, size) << endl;
+	return 0;
+}
+
+int Get(double* a)
+{
+	int i = 0;
+	while (i < Max && cin >> a[i])
+		++i;
+	return i;
+}
+
+void Print(double* a, int n)
+{
+	for (int i = 0; i < n; ++i)
+		cout << a[i] << ' ';
+	cout << endl;
+}
+
+double Calculate(double* a, int n)
+{
+	double ans = 0.0;
+	for (int i = 0; i < n; ++i)
+		ans += a[i];
+	return ans / n;
+}
