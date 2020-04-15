@@ -1,0 +1,36 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+struct CandyBar
+{
+	char band[80];
+	double weight;
+	int calorie;
+};
+
+void Set(CandyBar& cb, const char* band = "Millennium", double weight = 2.85, int calorie = 350);
+void Print(const CandyBar& cb);
+
+int main()
+{
+	CandyBar cb;
+	Set(cb);
+	Print(cb);
+	return 0;
+}
+
+void Set(CandyBar& cb, const char* band, double weight, int calorie)
+{
+	strcpy(cb.band, band);
+	cb.weight = weight;
+	cb.calorie = calorie;
+}
+
+void Print(const CandyBar& cb)
+{
+	cout << "Band: " << cb.band << endl;
+	cout << "Weight: " << cb.weight << endl;
+	cout << "Calorie: " << cb.calorie << endl;
+}
