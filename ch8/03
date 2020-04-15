@@ -1,0 +1,30 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+using namespace std;
+
+void Alter(string& st);
+
+int main()
+{
+	cout << "Enter a string (q to quit): ";
+	string st;
+	getline(cin, st);
+	while (st != "q")
+	{
+		Alter(st);
+		cout << st << endl;
+		cout << "Next string (q to quit): ";
+		getline(cin, st);
+	}
+	cout << "Bye.\n";
+	return 0;
+}
+
+void Alter(string& st)
+{
+	int i = 0;
+	while (st[i])
+		st[i] = toupper(st[i]), ++i;
+	return;
+}
