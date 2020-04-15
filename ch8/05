@@ -1,0 +1,27 @@
+#include <iostream>
+
+template <typename T>
+T max5(T t1, T t2, T t3, T t4, T t5);
+
+int main()
+{
+	using namespace std;
+	int a[5] = { 1, 2, 3, 4, 5 };
+	double b[5] = { 1.2, 2.4, 4.8, 9.6, 19.2 };
+	cout << "Using int:\n";
+	cout << max5(a[0], a[1], a[2], a[3], a[4]) << endl;
+	cout << "Using double:\n";
+	cout << max5(b[0], b[1], b[2], b[3], b[4]) << endl;
+	return 0;
+}
+
+template<typename T>
+T max5(T t1, T t2, T t3, T t4, T t5)
+{
+	T max = t1;
+	max = t2 > max ? t2 : max;
+	max = t3 > max ? t3 : max;
+	max = t4 > max ? t4 : max;
+	max = t5 > max ? t5 : max;
+	return max;
+}
