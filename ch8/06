@@ -1,0 +1,52 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstring>
+
+template <class T>
+T maxn(T* a, int n);
+
+template <>
+const char* maxn<const char*>(const char* a[], int n);
+
+int main()
+{
+	using namespace std;
+	int a[6] = { 1, 2, 3, 4, 5, 6 };
+	double b[4] = { 1.2, 2.4, 4.8, 9.6 };
+	const char* c[5] =
+	{
+		"123",
+		"12345",
+		"1234567",
+		"123456",
+		"1235678"
+	};
+
+	cout << "Using int:\n";
+	cout << maxn(a, 6) << endl;
+	cout << "Using double:\n";
+	cout << maxn(b, 4) << endl;
+	cout << "Using char*:\n";
+	cout << maxn(c, 5) << endl;
+	return 0;
+}
+
+template<class T>
+T maxn(T* a, int n)
+{
+	T max = a[0];
+	for (int i = 1; i < n; ++i)
+		max = a[i] > max ? a[i] : max;
+	return max;
+}
+
+template<>
+const char* maxn(const char* a[], int n)
+{
+	char max[1010];
+	strcpy(max, a[0]);
+	for (int i = 0; i < n; ++i)
+		if (strlen(a[i]) > strlen(max))
+			strcpy(max, a[i]);
+	return max;
+}
