@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <cstring>
+#include <new>
+using namespace std;
+
+struct chaff
+{
+	char dross[20];
+	int slag;
+};
+
+int main()
+{
+	char* buffer = new char[2 * sizeof(chaff)];
+	chaff* cf = new (buffer) chaff[2];
+	strcpy(cf[0].dross, "This is the first");
+	cf[0].slag = 10;
+	strcpy(cf[1].dross, "This is the second");
+	cf[1].slag = 20;
+
+	for (int i = 0; i < 2; ++i)
+		cout << cf[i].dross << ", " << cf[i].slag << endl;
+	delete[] buffer;
+	return 0;
+}
