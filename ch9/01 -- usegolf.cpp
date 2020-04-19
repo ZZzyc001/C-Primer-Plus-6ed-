@@ -15,10 +15,11 @@ int main()
 	cout << "Using setgolf() with solicitation:\n";
 	int n = 0;
 	while (n < 5)
-		if (!setgolf(g2[n++]))
-			break;
-	--n;
-	
+		if (setgolf(g2[n]))
+			++n;
+	        else
+		        break;
+		
 	cout << "Using handicap() to revalue g2:\n";
 	for (int i = 0; i < n; ++i)
 		handicap(g2[i], 10 * i);
