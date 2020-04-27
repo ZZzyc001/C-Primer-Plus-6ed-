@@ -1,0 +1,49 @@
+// randwalk.cpp
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include "vector.h"
+int main()
+{
+	using namespace std;
+	using VECTOR::Vector;
+	srand(time(0));
+	double direction;
+	Vector step;
+	Vector result(0.0, 0.0);
+	unsigned long steps = 0;
+	double target;
+	double dstep;
+	double maxn = 0.0, minn = INFINITY, averagen = 0.0;
+	int N;
+	cout << "Enter the times of test: ";
+	cin >> N;
+	cout << "Enter target distance: ";
+	cin >> target;
+	cout << "Enter step length: ";
+	cin >> dstep;
+	for (int i = 0; i < N; ++i)
+	{
+		while (result.magval() < target)
+		{
+			direction = rand() % 360;
+			step.reset(dstep, direction, Vector::POL);
+			result = result + step;
+			++steps;
+		}
+		if (steps > maxn) maxn = steps;
+		if (steps < minn) minn = steps;
+		averagen += steps;
+		steps = 0;
+		result.reset(0.0, 0.0);
+	}
+	cout << "After " << N << " tests\n";
+	cout << "The max steps is: " << maxn << endl;
+	cout << "The minimum steps is: " << minn << endl;
+	cout << "And the average is: " << averagen / N << endl;
+	cout << "Bye!\n";
+	cin.clear();
+	while (cin.get() != '\n')
+		continue;
+	return 0;
+}
