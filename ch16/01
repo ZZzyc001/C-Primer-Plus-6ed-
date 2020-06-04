@@ -1,0 +1,25 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+bool Check(const string& s);
+
+int main()
+{
+	string st;
+	while (cin >> st)
+	{
+		if (Check(st))
+			cout << "YES.\n";
+		else
+			cout << "NO.\n";
+	}
+	return 0;
+}
+
+bool Check(const string& s)
+{
+	string s1(s.rbegin(), s.rend());
+	return s1 == s;
+}
