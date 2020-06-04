@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+#include <cctype>
+#include <algorithm>
+using namespace std;
+
+bool Check(const string& s);
+const string Alter(const string& s);
+
+int main()
+{
+	string st;
+	while (getline(cin, st))
+	{
+		if (Check(Alter(st)))
+			cout << "YES.\n";
+		else
+			cout << "NO.\n";
+	}
+	return 0;
+}
+
+bool Check(const string& s)
+{
+	string s1(s.rbegin(), s.rend());
+	return s1 == s;
+}
+
+const string Alter(const string& s)
+{
+	string t = "";
+	for (char ch : s)
+		if (isalpha(ch))
+			t.push_back(tolower(ch));
+	return t;
+}
