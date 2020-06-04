@@ -1,0 +1,27 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int reduce(long ar[], int n);
+
+int main()
+{
+	long ar[100];
+	int n = 0;
+	int x;
+	while (n < 100 && cin >> x)
+		ar[n++] = x;
+
+	x = reduce(ar, n);
+
+	cout << "After reduce, there are " << x << "items:\n";
+	for (int i = 0; i < x; ++i)
+		cout << ar[i] << endl;
+	return 0;
+}
+
+int reduce(long ar[], int n)
+{
+	sort(ar, ar + n);
+	return unique(ar, ar + n) - ar;
+}
