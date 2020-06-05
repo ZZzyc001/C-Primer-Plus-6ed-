@@ -1,0 +1,34 @@
+#include <iostream>
+#include <iterator>
+#include <string>
+#include <set>
+#include <algorithm>
+using namespace std;
+
+int main()
+{
+	set<string> Mat;
+	set<string> Pat;
+	set<string> Uni;
+	string temp;
+	ostream_iterator<string, char> oi(cout, "\n");
+
+	cout << "Please enter Mat's friend (every name in a single line, quit to quit)\n";
+	while (getline(cin, temp) && temp != "quit")
+		Mat.insert(temp);
+	cout << "This is the list you've entered:\n";
+	copy(Mat.begin(), Mat.end(), oi);
+
+	cout << "Please enter Pat's friend (every name in a single line, quit to quit)\n";
+	while (getline(cin, temp) && temp != "quit")
+		Pat.insert(temp);
+	cout << "This is the list you've entered:\n";
+	copy(Pat.begin(), Pat.end(), oi);
+
+	set_intersection(Mat.begin(), Mat.end(), Pat.begin(), Pat.end(),
+		insert_iterator<set<string>>(Uni, Uni.begin()));
+	cout << "This is the common friends between Mat and Pat\n";
+	copy(Uni.begin(), Uni.end(), oi);
+
+	return 0;
+}
