@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int ct = 0;
+	while (cin.peek() != '$')
+		cin.get(), ++ct;
+	cout << ct << endl;
+	return 0;
+}
