@@ -1,0 +1,52 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+using namespace std;
+
+int main(int argc, char* argv[])
+{
+	if (argc != 4)
+	{
+		cerr << "Incorrect number of files\n";
+		exit(EXIT_FAILURE);
+	}
+	ifstream fin1, fin2;
+	ofstream fout;
+	fin1.open(argv[1]);
+	if (!fin1.is_open())
+	{
+		cerr << "file " << argv[1] << "couldn't be opened\n";
+		exit(EXIT_FAILURE);
+	}
+	fin2.open(argv[2]);
+	if (!fin2.is_open())
+	{
+		cerr << "file " << argv[2] << "couldn't be opened\n";
+		exit(EXIT_FAILURE);
+	}
+	fout.open(argv[3]);
+	if (!fout.is_open())
+	{
+		cerr << "file " << argv[3] << "couldn't be opened\n";
+		exit(EXIT_FAILURE);
+	}
+
+	string st1, st2;
+	while (true)
+	{
+		getline(fin1, st1);
+		getline(fin2, st2);
+		if (fin1)
+		{
+			fout << st1;
+			if (fin2)
+				fout << ' ' << st2;
+			fout << endl;
+		}
+		else if (fin2)
+			fout << st2 << endl;
+		else
+			break;
+	}
+	return 0;
+}
