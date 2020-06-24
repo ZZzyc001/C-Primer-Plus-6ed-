@@ -1,0 +1,41 @@
+#include <iostream>
+#include <fstream>
+#include <vector>
+#include <string>
+#include <set>
+#include <iterator>
+#include <algorithm>
+using namespace std;
+
+const char* Mat = "mat.dat";
+const char* Pat = "pat.dat";
+const char* MatnPat = "matnpat.dat";
+
+int main()
+{
+	using namespace std;
+	ifstream fin1(Mat), fin2(Pat);
+	ofstream fout(MatnPat);
+
+	vector<string> vt1;
+	string st;
+	while (fin1 >> st)
+		vt1.push_back(st);
+	for (auto it : vt1)
+		cout << it << endl;
+
+	vector<string> vt2;
+	while (fin2 >> st)
+		vt2.push_back(st);
+	for (auto it : vt2)
+		cout << it << endl;
+
+	set<string> ans;
+	for (auto it : vt1)
+		ans.insert(it);
+	for (auto it : vt2)
+		ans.insert(it);
+	for (auto it : ans)
+		fout << it << endl;
+	return 0;
+}
