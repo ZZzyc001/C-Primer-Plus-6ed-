@@ -1,0 +1,142 @@
+#include <iostream>
+
+class Cpmv
+{
+public:
+	struct Info
+	{
+		std::string qcode;
+		std::string zcode;
+	};
+private:
+	Info* pi;
+public:
+	Cpmv();
+	Cpmv(std::string q, std::string z);
+	Cpmv(const Cpmv& cp);
+	Cpmv(Cpmv&& mv) noexcept;
+	~Cpmv();
+	Cpmv& operator=(const Cpmv& cp);
+	Cpmv& operator=(Cpmv&& mv) noexcept;
+	Cpmv operator+(const Cpmv& obj) const;
+	void Display() const;
+};
+
+Cpmv::Cpmv()
+{
+	std::cout << "Using default constructor.\n";
+	pi = nullptr;
+}
+
+Cpmv::Cpmv(std::string q, std::string z)
+{
+	std::cout << "Using string, string constructor.\n";
+	pi = new Info;
+	pi->qcode = q;
+	pi->zcode = z;
+}
+
+Cpmv::Cpmv(const Cpmv& cp)
+{
+	std::cout << "Using copy constructor.\n";
+	pi = new Info;
+	pi->qcode = cp.pi->qcode;
+	pi->zcode = cp.pi->zcode;
+}
+
+Cpmv::Cpmv(Cpmv&& mv) noexcept
+{
+	std::cout << "Using move constructor.\n";
+	pi = new Info;
+	pi->qcode = mv.pi->qcode;
+	pi->zcode = mv.pi->zcode;
+	mv.pi = nullptr;
+}
+
+Cpmv::~Cpmv()
+{
+	std::cout << "Using destructor.\n";
+	delete pi;
+}
+
+Cpmv& Cpmv::operator=(const Cpmv& cp)
+{
+	std::cout << "Using copy assigment operator.\n";
+	if (this == &cp)
+		return *this;
+	delete pi;
+	pi = new Info;
+	pi->qcode = cp.pi->qcode;
+	pi->zcode = cp.pi->zcode;
+	return *this;
+}
+
+Cpmv& Cpmv::operator=(Cpmv&& mv) noexcept
+{
+	std::cout << "Using move assigment operator.\n";
+	if (this == &mv)
+		return *this;
+	delete pi;
+	pi = new Info;
+	pi->qcode = mv.pi->qcode;
+	pi->zcode = mv.pi->zcode;
+	mv.pi = nullptr;
+	return *this;
+}
+
+Cpmv Cpmv::operator+(const Cpmv& obj) const
+{
+	std::cout << "Using plus operator.\n";
+	return Cpmv(pi->qcode + obj.pi->qcode, pi->zcode + obj.pi->zcode);
+}
+
+void Cpmv::Display() const
+{
+	if (pi == nullptr)
+	{
+		std::cout << "empty.\n\n";
+		return;
+	}
+	std::cout << "The qcode is " << pi->qcode << std::endl;
+	std::cout << "The zcode is " << pi->zcode << std::endl;
+	std::cout << std::endl;
+}
+
+int main()
+{
+	using std::cout;
+	using std::endl;
+	Cpmv temp;
+	cout << "Object 0:\n";
+	temp.Display();
+
+	Cpmv temp1("number one", "number two");
+	cout << "Object 1:\n";
+	temp1.Display();
+
+	Cpmv temp2(temp1);
+	cout << "Object 2:\n";
+	temp2.Display();
+
+	cout << "Object 3 = Object 1:\n";
+	Cpmv temp3;
+	temp3 = temp1;
+	cout << "Object 3:\n";
+	temp3.Display();
+	cout << "Object 1:\n";
+	temp1.Display();
+
+	cout << "Object 4 = move(Obejct 2):\n";
+	Cpmv temp4;
+	temp4 = std::move(temp2);
+	cout << "Object 4:\n";
+	temp4.Display();
+	cout << "Object 2:\n";
+	temp2.Display();
+
+	cout << "Obejct 5 = Object 3 + Obejct 4:\n";
+	Cpmv temp5 = temp3 + temp4;
+	cout << "Obejct 5:\n";
+	temp5.Display();
+	return 0;
+}
